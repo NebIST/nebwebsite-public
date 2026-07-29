@@ -1,0 +1,199 @@
+.nebletterPage {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 110px 0 48px; /* account for fixed navbar */
+  box-sizing: border-box;
+}
+
+.nebletterHeader {
+  margin-bottom: 18px;
+}
+
+.nebletterTitle {
+  margin: 0;
+  font-size: clamp(28px, 4.2vw, 52px);
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.nebletterSubtitle {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.45;
+  max-width: 70ch;
+}
+
+.nebletterError,
+.nebletterEmpty {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.nebletterGroups {
+  display: grid;
+  gap: 26px;
+  margin-top: 22px;
+}
+
+.sySection {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.syTitle {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.syGrid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 2px 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.syGrid::-webkit-scrollbar {
+  height: 10px;
+}
+
+.syGrid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+}
+
+.syGrid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.syGrid::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.pdfCard {
+  text-decoration: none;
+  color: inherit;
+  display: grid;
+  gap: 10px;
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 720px) {
+  .pdfCard {
+    width: 190px;
+  }
+}
+
+@media (max-width: 440px) {
+  .pdfCard {
+    width: 78vw;
+    max-width: 320px;
+  }
+}
+
+.pdfThumb {
+  width: 100%;
+  aspect-ratio: 300 / 420; /* A4-ish */
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 22px 90px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdfThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pdfThumbPlaceholder {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 14px;
+}
+
+.pdfLabel {
+  text-align: center;
+  font-weight: 750;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.nebletterSubscribeLink {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nebletterBullets {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(14px, 1.35vw, 16px);
+  line-height: 1.5;
+  max-width: 75ch;
+}
+.nebletterBullets li { margin: 6px 0; }
+.nebletterBullets strong { color: rgba(255, 255, 255, 0.96); }
+
+.nebletterCtas {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nebletterSecondaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: rgba(234, 240, 255, 0.92);
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.nebletterSecondaryLink:hover {
+  background: rgba(0, 0, 0, 0.26);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.nebletterHint {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 13px;
+  max-width: 75ch;
+}

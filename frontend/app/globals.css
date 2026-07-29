@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Work+Sans:wght@400..700&display=swap');
+
+:root {
+    background-color: black;
+    --text-color: #ffffff;
+    --muted-text: #e6e6e6b2;
+    scroll-behavior: smooth;
+}
+
+div{
+    color: var(--text-color);
+    font-family: 'Work Sans';
+}
+
+.front-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+}
+
+.Photo {
+    width: clamp(120px, 25vw, 240px);
+    display: block;
+    max-width: 300px;
+    height: auto;
+}
+
+.front-page {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+}
+
+.front-page p {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.front-text h1,
+.front-text h3 {
+    display: grid;
+    text-align: center;
+    line-height: 1;
+    font-size: 500%;
+    margin: 0;
+    padding: 0;
+    font-size: clamp(2rem, 10vw, 5rem);
+}
+
+.front-text h3 {
+    font-family: 'Inter' system-ui, -apple-system;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-size: 120%;
+    color: var(--muted-text);
+}
+
+/*Square parts of the home page*/
+.about-title {
+    margin-left: 15vw;
+    font-size: 5vw;
+}
+
+.about-container {
+    display: flex;
+    gap: 1vw 3vw;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.about-card {
+    position: relative;
+    min-width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.about-card img,
+.about-photos {
+    display: block;
+    width: clamp(200px, 90vw, 300px);
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.nebletter {
+    filter: brightness(90%);
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 2;
+}
+
+.overlay.top {
+    top: 0;
+    bottom: auto;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 100%);
+}
+
+/* title styling */
+.overlay h3 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1;
+    margin: 1vw;
+}
+
+.more {
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 150ms ease, opacity 220ms ease, transform 3s ease;
+    font-size: 1.5rem;
+}
+
+.overlay .more { transform: translateY(6px); }
+.overlay.top .more { transform: translateY(-6px); }
+
+/*Design the about for mobile use too*/
+
+.about-card:focus-within {border: 1px solid #56BA85; transition: border 300ms;}
+
+.about-card:hover .more,
+.about-card:focus-within .more {
+    max-height: 160px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-card:hover img,
+.about-card:focus-within img {
+    transform: scale(1.05);
+    filter: brightness(50%);
+}
+
+
+/* President Message */
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1rem, 2vw, 2rem);
+    max-width: 1100px;
+    margin: 2.5vw auto;
+    padding: clamp(1rem, 2vw, 2.5rem);
+    background: linear-gradient(180deg, #ffffff, #fbfcfaff);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-left: 5px solid #56BA85; 
+    border-bottom: 5px solid #56BA85;
+}
+
+.message-container img {
+    width: clamp(100px, 18vw, 320px);
+    height: clamp(100px, 18vw, 320px);
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.6);
+}
+
+.message-container p {
+    color: #0b0b0b;
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    line-height: 1.6;
+    font-family: 'Inter' system-ui, -apple-system;;
+}
+
+@media (max-width: 800px) {
+    .message-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: clamp(1rem, 4vw, 2rem);
+    }
+    .message-image {
+        width: clamp(120px, 30vw, 220px);
+        height: auto;
+        border-radius: 50%;
+    }
+    .message-text {
+        text-align: left;
+        width: 100%;
+    }
+    .message-text p { text-align: justify; }
+}
+
+/* ensure full height so min-height:100vh works reliably */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* page layout: column with main growing and footer after it */
+.page-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.page-main {
+  flex: 1 0 auto; /* grow to fill available space */
+}
+
+/* ensure footer doesn't shrink or overlap */
+.neb-footbar {
+  flex-shrink: 0;
+}

@@ -1,0 +1,13 @@
+{
+    "groups": [
+        {
+            "id": "user_basic",
+            "label": "User Basic Info",
+            "fields": [
+                { "id": "istid", "label": "IST ID", "type": "string", "required": true },
+                { "id": "name", "label": "Name", "type": "string", "required": true },
+                { "id": "email", "label": "Email", "type": "email", "required": true }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#0b0b0b"/>
+  <circle cx="64" cy="50" r="22" fill="#2a2a2a"/>
+  <path d="M20 122c6-26 26-38 44-38s38 12 44 38" fill="#2a2a2a"/>
+  <text x="64" y="18" text-anchor="middle" font-size="10" fill="#bdbdbd" font-family="Inter, Arial, sans-serif">NEB</text>
+</svg>

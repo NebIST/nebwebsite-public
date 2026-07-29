@@ -1,0 +1,286 @@
+.uploadForm .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.uploadForm .actions {
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.field .label {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.72);
+}
+
+.field .help {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.55);
+}
+
+.field input[type="text"],
+.field input[type="search"],
+.field input[type="url"],
+.field input[type="number"],
+.field input[type="datetime-local"],
+.field select,
+.field textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: rgba(234,240,255,0.95);
+  outline: none;
+}
+
+.searchBar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin: 10px 0 6px;
+}
+
+.searchMeta {
+  min-width: 120px;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .searchMeta { text-align: left; }
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+}
+
+.dropzone {
+  margin-top: 8px;
+  position: relative;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.04);
+  padding: 14px;
+  cursor: pointer;
+  user-select: none;
+  display: block;
+}
+
+.dropzone.dragging {
+  border-color: rgba(158, 200, 64, 0.7);
+  box-shadow: 0 0 0 4px rgba(158, 200, 64, 0.16);
+}
+
+.dropzone.hasFile {
+  border-style: solid;
+  border-color: rgba(124, 58, 237, 0.45);
+}
+
+.fileInput {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.dzTitle { font-weight: 700; letter-spacing: 0.2px; }
+.dzSub { margin-top: 4px; color: rgba(234,240,255,0.72); font-size: 13px; }
+.dzMeta { margin-top: 10px; font-size: 13px; color: rgba(234,240,255,0.85); }
+
+.tableWrap { overflow-x: auto; margin-top: 10px; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th, .table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: middle;
+  text-align: left;
+}
+
+.table th { color: rgba(234,240,255,0.75); font-weight: 650; }
+
+.thumb {
+  width: 72px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+}
+
+.thumbWrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.thumbBadge {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+
+  padding: 3px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.65);
+  color: rgba(234,240,255,0.92);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+}
+
+.actionsInline {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 13px;
+}
+
+.pill.on {
+  border-color: rgba(34, 197, 94, 0.35);
+  color: rgba(210, 255, 227, 0.9);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.pill.off {
+  border-color: rgba(239, 68, 68, 0.35);
+  color: rgba(255, 220, 220, 0.9);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.editBox > summary {
+  list-style: none;
+}
+.editBox > summary::-webkit-details-marker { display: none; }
+
+.editForm {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.12);
+}
+
+.ttlWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ttlWrap[hidden] {
+  display: none;
+}
+
+.logList {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.logRow {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.12);
+}
+
+.logTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.logAction { font-weight: 700; }
+.logWhen { color: rgba(234,240,255,0.65); font-size: 13px; }
+
+.logMeta {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: rgba(234,240,255,0.75);
+  font-size: 13px;
+}
+
+.logChips {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.logChip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(234,240,255,0.86);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logChip .k {
+  color: rgba(234,240,255,0.62);
+}
+
+.logMore {
+  margin-top: 10px;
+}
+
+.logMore > summary {
+  cursor: pointer;
+  color: rgba(234,240,255,0.78);
+  font-size: 13px;
+}
+
+.logPre {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.18);
+  color: rgba(234,240,255,0.92);
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 260px;
+  overflow: auto;
+}

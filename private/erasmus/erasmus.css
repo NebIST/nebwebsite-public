@@ -1,0 +1,347 @@
+.erasmusWrap {
+  display: grid;
+  gap: 14px;
+}
+
+.erasmusWrap .card p {
+  margin: 0;
+  line-height: 1.62;
+}
+
+.erasmusWelcome {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(20px, 3vw, 30px);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(56, 189, 248, 0.24), rgba(56, 189, 248, 0) 45%),
+    radial-gradient(circle at 88% 20%, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0) 42%),
+    linear-gradient(135deg, rgba(23, 37, 84, 0.84), rgba(30, 58, 138, 0.78) 45%, rgba(15, 118, 110, 0.78));
+}
+
+.erasmusWelcome h2 {
+  margin: 8px 0 8px;
+  font-size: clamp(24px, 4vw, 34px);
+  color: rgba(255, 255, 255, 0.99);
+  line-height: 1.15;
+}
+
+.erasmusWelcome p {
+  color: rgba(233, 244, 255, 0.95);
+  max-width: 75ch;
+}
+
+.welcomeBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.welcomeSteps {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.welcomeStep {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.stepIndex {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.98);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.stepText {
+  color: rgba(236, 246, 255, 0.96);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.erasmusIntro ul {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(234, 240, 255, 0.9);
+  display: grid;
+  gap: 8px;
+}
+
+.erasmusIntro li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.erasmusIntro li::before {
+  content: "✓";
+  color: rgba(110, 231, 183, 0.95);
+  font-weight: 800;
+}
+
+.statusLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pending {
+  color: rgba(255, 241, 212, 0.95);
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.status-approved {
+  color: rgba(220, 255, 230, 0.95);
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.status-changes_requested {
+  color: rgba(225, 239, 255, 0.95);
+  border-color: rgba(59, 130, 246, 0.45);
+  background: rgba(59, 130, 246, 0.18);
+}
+
+.storyMeta {
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+  color: rgba(234, 240, 255, 0.92);
+  font-size: 14px;
+}
+
+.storySummary {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(234, 240, 255, 0.9);
+  line-height: 1.55;
+}
+
+.statusEmpty {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  background: rgba(37, 99, 235, 0.16);
+  color: rgba(226, 238, 255, 0.95);
+  display: grid;
+  gap: 4px;
+}
+
+.statusEmpty strong {
+  font-size: 14px;
+}
+
+.statusEmpty span {
+  color: rgba(216, 233, 255, 0.84);
+  font-size: 13px;
+}
+
+.adminNote {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 58, 237, 0.45);
+  background: rgba(124, 58, 237, 0.18);
+  color: rgba(241, 235, 255, 0.96);
+  line-height: 1.5;
+}
+
+.adminNoteLabel {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.erasmusForm {
+  display: grid;
+  gap: 12px;
+}
+
+.erasmusFormCard {
+  grid-column: span 12;
+}
+
+.formLead {
+  margin-top: -2px;
+  color: rgba(234, 240, 255, 0.75);
+  font-size: 14px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.92);
+}
+
+.help {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.65);
+}
+
+.fileField {
+  align-content: start;
+}
+
+.previewShell {
+  margin-top: 4px;
+}
+
+.currentPreview,
+.previewPlaceholder {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.currentPreview {
+  height: 180px;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.currentPreviewStudent {
+  width: min(180px, 100%);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 999px;
+  margin: 0 auto;
+  display: block;
+}
+
+.currentPreviewUniversity {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+}
+
+.previewPlaceholder {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  color: rgba(234, 240, 255, 0.68);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 13px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.textareaHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.counter {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.72);
+}
+
+.counter strong {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  color: var(--text);
+  font: inherit;
+  padding: 10px 11px;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 220px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid rgba(124, 58, 237, 0.55);
+  outline-offset: 1px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+
+@media (max-width: 860px) {
+  .welcomeSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .actions .button {
+    width: 100%;
+  }
+
+  .currentPreviewStudent {
+    width: min(160px, 100%);
+  }
+}

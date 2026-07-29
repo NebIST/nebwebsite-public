@@ -1,0 +1,231 @@
+/* Layout / hero */
+.hero-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: clamp(220px, 40vw, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 2.25rem;
+}
+
+.hero-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* base text & wave text use same sizing but CSS classes allow responsive control */
+.hero-base-text {
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 6vw, 64px);
+  fill: #041627;
+  stroke: rgba(0,0,0,0.14);
+  stroke-width: 1.6;
+  paint-order: stroke fill;
+}
+
+.hero-wave-text {
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 6vw, 64px);
+  fill: url(#waveGradient);
+  mask: url(#waveMask);
+}
+
+/* callout inside hero */
+.hero-callout {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: min(92%, 720px);
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+}
+
+.hero-callout-text {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(14px, 2.2vw, 20px);
+  background: rgba(3,10,20,0.36);
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+/* main intro paragraph */
+.summer-main {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.intro-paragraph {
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin: 1.5rem auto 2.25rem;
+  max-width: 980px;
+  text-align: center;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.92);
+}
+
+/* block-obj: stacked on small screens */
+.block-obj {
+  display: flex;
+  gap: clamp(1rem, 4vw, 2.25rem);
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(1.25rem, 3.5vw, 4rem);
+  background-color: #19647E;
+  border-radius: 10px;
+  margin: 1.5rem auto;
+  max-width: 1100px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* columns for text */
+.block-column {
+  flex: 1 1 240px;
+  min-width: 200px;
+}
+
+.block-column h3 {
+  margin-top: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  color: #eaf6ff;
+}
+
+.block-column p {
+  margin: 0.45rem 0 0;
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: rgba(234,246,255,0.95);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* image clamp fixed and responsive */
+.block-obj-img {
+  flex: 0 0 auto;
+  width: clamp(220px, 40vw, 520px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* actions section */
+.summer-actions {
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+.summer-actions-box {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(8,40,64,0.12), rgba(8,40,64,0.06));
+  border-radius: 12px;
+  padding: clamp(12px, 2vw, 26px);
+  box-shadow: 0 10px 30px rgba(2,10,20,0.16);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* accent square */
+.summer-accent-square {
+  width: 78px;
+  height: 78px;
+  flex: 0 0 78px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(70,160,220,0.98), rgba(40,110,180,0.95));
+  box-shadow: 0 6px 18px rgba(40,110,180,0.12), inset 0 -6px 12px rgba(255,255,255,0.04);
+  transform: rotate(6deg);
+}
+
+/* content inside actions */
+.summer-actions-content { flex: 1 1 auto; }
+
+.summer-actions-title {
+  margin: 0 0 0.4rem 0;
+  color: #eaf6ff;
+  font-size: clamp(1rem, 1.9vw, 1.3rem);
+  line-height: 1.2;
+}
+
+.summer-actions-desc {
+  margin: 0 0 0.8rem 0;
+  color: rgba(234,246,255,0.92);
+  font-size: clamp(13px, 1.2vw, 15px);
+  line-height: 1.45;
+}
+
+/* buttons — make full width and stacked on small screens for easier tapping */
+.callout-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #56BA85, #3DB5A2);
+  color: #012;
+  box-shadow: 0 6px 18px rgba(61,181,162,0.12);
+  border: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #0b3b6b;
+  border: 2px solid rgba(11,59,107,0.12);
+}
+
+/* responsive layout tweaks */
+@media (max-width: 900px) {
+  .hero-wrapper { height: clamp(180px, 46vw, 360px); }
+  .block-obj { padding: clamp(1rem, 4vw, 2.5rem); }
+  .summer-accent-square { width: 68px; height: 68px; flex: 0 0 68px; }
+}
+
+@media (max-width: 720px) {
+  .block-obj { flex-direction: column-reverse; align-items: center; text-align: center; gap: 1rem; }
+  .block-column { width: 100%; }
+  .block-column p, .block-column h3 { text-align: center; }
+  .summer-actions-box { flex-direction: column; align-items: center; text-align: center; }
+  .summer-accent-square { margin-bottom: 0.25rem; transform: none; }
+  .callout-actions { flex-direction: column; width: 100%; }
+  .callout-actions .btn { width: 100%; }
+  .intro-paragraph { padding: 0 12px; text-align: center; }
+  .hero-callout { bottom: 6%; }
+}
+
+@media (max-width: 420px) {
+  .hero-wrapper { height: 62vw; }
+  .hero-base-text, .hero-wave-text { font-size: clamp(20px, 9vw, 40px); }
+  .block-obj-img { width: clamp(180px, 56vw, 420px); }
+  .summer-accent-square { width: 60px; height: 60px; }
+  .intro-paragraph { font-size: 14px; }
+}

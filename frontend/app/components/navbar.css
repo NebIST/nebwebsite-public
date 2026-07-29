@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Work Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =========================
+   NAVBAR CONTAINER
+   ========================= */
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  min-height: 68px;
+  padding: env(safe-area-inset-top) 1.25rem 0;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+
+  background: rgba(15, 15, 18, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  transition: background 200ms ease;
+}
+
+/* =========================
+   INNER LAYOUT
+   ========================= */
+.navbar-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* changed: left logo, right menu/toggle */
+  gap: 1rem;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+}
+
+.navbar-admin {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff; /* white back for the icon */
+  color: rgba(15, 15, 18, 0.95);
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.08);
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.navbar-admin:hover {
+  background: rgba(255,255,255,0.92);
+  transform: translateY(-1px);
+}
+
+.navbar-admin:focus-visible {
+  outline: 2px solid rgba(158, 200, 64, 0.75);
+  outline-offset: 2px;
+}
+
+.navbar-adminIcon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+.navbar-logo {
+  /* removed absolute positioning so the logo stays in the flow */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 6px 0;
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+.navbar-logo img {
+  max-height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================
+   MENU (DESKTOP)
+   ========================= */
+.navbar-menu {
+  display: flex;
+  gap: 0.6rem; /* slightly larger gap for legibility */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center; /* vertically center links with logo */
+}
+
+.navbar-menu a {
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  padding: 0.6rem 1rem; /* increase hit area and align */
+  font-size: 0.95rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-menu a.active {
+  background: rgba(158, 200, 64, 0.25);
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar-menu a:hover {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.navbar-menu a:focus-visible {
+  outline: none;
+  background: rgba(158, 200, 64, 0.25);
+  color: #fff;
+}
+
+/* =========================
+   HAMBURGER
+   ========================= */
+.navbar-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: background 160ms ease;
+}
+
+.navbar-toggle:hover {
+  background: rgba(255,255,255,0.16);
+}
+
+.navbar-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  margin: 3px 0;
+  background: white;
+  border-radius: 2px;
+  transition: transform 220ms ease, opacity 160ms ease;
+}
+
+/* =========================
+   OPEN STATE (X)
+   ========================= */
+.navbar.is-open .navbar-toggle .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar.is-open .navbar-toggle .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar.is-open .navbar-toggle .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+   ========================= */
+@media (max-width: 768px) {
+  .navbar-container {
+    justify-content: space-between;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    margin-left: 0;
+  }
+
+  /*Makes it hide desktop menu and loads config for mobile */
+  .navbar-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 8px;
+    right: 8px;
+    width: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(20,20,25,0.96);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    display: none;
+  }
+
+  .navbar.is-open .navbar-menu {
+    display: flex;
+  }
+
+  .navbar-menu a {
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

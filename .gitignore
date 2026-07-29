@@ -1,0 +1,11 @@
+node_modules/
+**/node_modules/
+.next/
+**/fenixedu-sdk/fenixedu.config.php
+
+.test/
+.DS_Store
+
+**/user.data.json
+**/logs.data.json
+**/roles.store.json

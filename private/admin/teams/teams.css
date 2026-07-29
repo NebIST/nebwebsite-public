@@ -1,0 +1,138 @@
+.uploadForm .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.uploadForm .actions {
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.field input[type="text"],
+.field input[type="search"],
+.field input[type="url"],
+.field textarea,
+.field select,
+.field input[type="file"] {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: rgba(234,240,255,0.92);
+  font-size: 14px;
+}
+
+.field .label {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.72);
+}
+
+.field .help {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.55);
+}
+
+.waitingUsersDialog {
+  max-width: 760px;
+  width: min(90vw, 760px);
+  border: 0;
+  border-radius: 14px;
+  padding: 0;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  background: #fffdf8;
+  color: #1f2937;
+}
+
+.waitingUsersDialog::backdrop {
+  background: rgba(17, 24, 39, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.waitingUsersDialogBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.waitingUsersDialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.waitingUsersDialogHeader h3 {
+  margin: 0;
+  color: #111827;
+}
+
+.waitingUsersDialog .subtitle {
+  color: #4b5563;
+}
+
+.waitingUsersDialog .tableWrap {
+  background: #ffffff;
+  border: 1px solid #ebdfc8;
+  border-radius: 10px;
+}
+
+.waitingUsersDialog .table th {
+  background: #f5efe4;
+  color: #243041;
+}
+
+.deptBox {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  background: rgba(0,0,0,0.12);
+}
+
+.deptBox > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.deptBox summary:hover {
+  color: #0f766e;
+}
+
+.teamSetupChecklist {
+  margin: 10px 0 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.16);
+}
+
+.teamSetupChecklist h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.teamSetupChecklist ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.teamSetupChecklist li {
+  color: rgba(234, 240, 255, 0.92);
+  line-height: 1.5;
+}
+
+.teamSetupChecklist code {
+  color: #c7f7e6;
+}

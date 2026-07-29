@@ -1,0 +1,267 @@
+.merchPage {
+	width: min(1120px, calc(100% - 2rem));
+	margin: 0 auto;
+	padding: 110px 0 72px;
+	box-sizing: border-box;
+}
+
+.merchHero {
+	margin-bottom: 20px;
+}
+
+.merchEyebrow {
+	margin: 0 0 8px;
+	color: rgba(86, 186, 133, 0.9);
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.merchTitle {
+	min-width: 0;
+	font-size: clamp(30px, 4.4vw, 60px);
+	color: rgba(255,255,255,0.97);
+}
+
+.merchSubtitle {
+	min-width: 0;
+	max-width: 68ch;
+	color: rgba(255,255,255,0.74);
+	font-size: clamp(15px, 1.5vw, 18px);
+	line-height: 1.55;
+}
+
+.merchSearchPanel,
+.merchOrderSection,
+.merchCategorySection {
+	border-radius: 18px;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+	box-shadow: 0 22px 90px rgba(0,0,0,0.42);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.merchSearchPanel {
+	padding: 16px;
+	margin-bottom: 18px;
+}
+
+.merchSearchField {
+	display: grid;
+	gap: 8px;
+}
+
+.merchSearchField span,
+.orderField span {
+	font-size: 13px;
+	color: rgba(255,255,255,0.78);
+}
+
+.merchSearchField input,
+.orderField input,
+.orderField select {
+	width: 97%;
+	padding: 11px 13px;
+	border-radius: 12px;
+	border: 1px solid rgba(255,255,255,0.14);
+	background: rgba(0,0,0,0.20);
+	color: rgba(255,255,255,0.95);
+	outline: none;
+	font-size: 14px;
+}
+
+.merchSearchField input:focus,
+.orderField input:focus,
+.orderField select:focus {
+	border-color: rgba(86, 186, 133, 0.72);
+}
+
+.merchCatalog {
+	display: grid;
+	gap: 18px;
+}
+
+.merchCategorySection {
+	padding: 18px;
+}
+
+.merchCategoryHeader {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.merchCategoryHeader h2 {
+	margin: 0;
+	color: rgba(255,255,255,0.96);
+	font-size: clamp(22px, 2.8vw, 32px);
+}
+
+.merchCategoryHeader span {
+	color: rgba(255,255,255,0.68);
+	font-size: 13px;
+}
+
+.merchItemsGrid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.merchItemCard {
+	overflow: hidden;
+	border-radius: 16px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(7, 14, 28, 0.44);
+}
+
+.merchItemImageWrap {
+	aspect-ratio: 1 / 1;
+	background: rgba(0,0,0,0.24);
+}
+
+.merchItemImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.merchItemBody {
+	padding: 14px;
+}
+
+.merchItemBody h3 {
+	margin: 0;
+	color: rgba(255,255,255,0.96);
+	font-size: 18px;
+}
+
+.merchItemCategory {
+	margin: 8px 0 0;
+	color: rgba(255,255,255,0.70);
+	font-size: 13px;
+}
+
+.merchItemPrice {
+	margin-top: 12px;
+	display: inline-flex;
+	padding: 8px 12px;
+	border-radius: 999px;
+	background: rgba(86, 186, 133, 0.16);
+	border: 1px solid rgba(86, 186, 133, 0.34);
+	color: rgba(255,255,255,0.96);
+	font-weight: 700;
+}
+
+.merchOrderSection {
+	margin-top: 24px;
+	padding: 18px;
+}
+
+.merchOrderIntro h2 {
+	margin: 0;
+	color: rgba(255,255,255,0.96);
+}
+
+.merchOrderIntro p {
+	margin: 10px 0 0;
+	color: rgba(255,255,255,0.74);
+	line-height: 1.55;
+}
+
+.merchOrderForm {
+	margin-top: 18px;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 14px;
+}
+
+.orderField {
+	display: grid;
+	gap: 8px;
+}
+
+.orderFieldFull {
+	grid-column: 1 / -1;
+}
+
+.merchOrderActions {
+	grid-column: 1 / -1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.merchOrderButton {
+	padding: 12px 18px;
+	border-radius: 12px;
+	border: 1px solid rgba(86, 186, 133, 0.40);
+	background: rgba(86, 186, 133, 0.16);
+	color: rgba(255,255,255,0.96);
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.merchOrderButton:hover:enabled {
+	background: rgba(86, 186, 133, 0.24);
+}
+
+.merchOrderButton:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.merchFormNote,
+.merchError,
+.merchEmpty,
+.merchMessage {
+	margin-top: 14px;
+	padding: 12px 14px;
+	border-radius: 14px;
+	border: 1px solid rgba(255,255,255,0.12);
+	color: rgba(255,255,255,0.88);
+}
+
+.merchFormNote,
+.merchEmpty {
+	background: rgba(255,255,255,0.06);
+}
+
+.merchError,
+.merchMessage.error {
+	background: rgba(239, 68, 68, 0.12);
+	border-color: rgba(239, 68, 68, 0.36);
+}
+
+.merchMessage.success {
+	background: rgba(16, 185, 129, 0.12);
+	border-color: rgba(16, 185, 129, 0.36);
+}
+
+@media (max-width: 980px) {
+	.merchItemsGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 720px) {
+	.merchItemsGrid,
+	.merchOrderForm {
+		grid-template-columns: 1fr;
+	}
+
+	.merchOrderActions,
+	.orderFieldFull {
+		grid-column: auto;
+	}
+
+	.merchCategoryHeader {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

@@ -1,0 +1,87 @@
+.uploadForm .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.uploadForm .actions {
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.field .label {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.72);
+}
+
+.field .help {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.55);
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="datetime-local"],
+.field input[type="file"],
+.field select,
+.field textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: rgba(234,240,255,0.95);
+  outline: none;
+  font-size: 14px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(124, 58, 237, 0.55);
+}
+
+.tableWrap { overflow-x: auto; margin-top: 10px; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: top;
+  text-align: left;
+}
+
+.table th { color: rgba(234,240,255,0.75); font-weight: 650; }
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  font-size: 12px;
+  color: rgba(234,240,255,0.9);
+}

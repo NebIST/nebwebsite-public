@@ -1,0 +1,230 @@
+.uploadForm .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.uploadForm .actions {
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.field .label {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.72);
+}
+
+.field input[type="number"],
+.field select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: rgba(234,240,255,0.95);
+  outline: none;
+}
+
+.field input[type="number"]:focus,
+.field select:focus {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+}
+
+.fileInput {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.dropzone {
+  position: relative;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.04);
+  padding: 14px;
+  cursor: pointer;
+  user-select: none;
+  display: block;
+}
+
+.dropzone.dragging {
+  border-color: rgba(158, 200, 64, 0.7);
+  box-shadow: 0 0 0 4px rgba(158, 200, 64, 0.16);
+}
+
+.dropzone.hasFile {
+  border-style: solid;
+  border-color: rgba(124, 58, 237, 0.45);
+}
+
+.dropzone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dzTitle {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.dzSub {
+  margin-top: 4px;
+  color: rgba(234,240,255,0.72);
+  font-size: 13px;
+}
+
+.dzMeta {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(234,240,255,0.85);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th, .table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: middle;
+  text-align: left;
+}
+
+.table th {
+  color: rgba(234,240,255,0.75);
+  font-weight: 650;
+}
+
+.logList {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.logRow {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.12);
+}
+
+.logTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.logAction {
+  font-weight: 700;
+}
+
+.logWhen {
+  color: rgba(234,240,255,0.65);
+  font-size: 13px;
+}
+
+.logMeta {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: rgba(234,240,255,0.75);
+  font-size: 13px;
+}
+
+.logJson code {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.uploadProgress {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.uploadProgressRow {
+  display: grid;
+  grid-template-columns: 64px 1fr 54px;
+  gap: 10px;
+  align-items: center;
+}
+
+.uploadProgressLabel {
+  font-size: 12px;
+  color: rgba(234,240,255,0.72);
+}
+
+.uploadProgressText {
+  font-size: 12px;
+  color: rgba(234,240,255,0.86);
+  text-align: right;
+}
+
+.chunksProgressList {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.chunkRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.chunkLabel {
+  font-size: 12px;
+  color: rgba(234,240,255,0.75);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chunkProgress,
+#totalProgress {
+  width: 100%;
+  height: 12px;
+}
+
+.chunkText {
+  font-size: 12px;
+  color: rgba(234,240,255,0.78);
+  text-align: right;
+  margin-top: -2px;
+}
+
+.uploadProgressActions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

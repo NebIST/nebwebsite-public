@@ -1,0 +1,148 @@
+.uploadForm .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.uploadForm .actions {
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.field .label {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.72);
+}
+
+.field .help {
+  font-size: 12px;
+  color: rgba(234, 240, 255, 0.55);
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select,
+.field textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: rgba(234,240,255,0.95);
+  outline: none;
+  font-size: 14px;
+}
+
+.field textarea { resize: vertical; min-height: 110px; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(124, 58, 237, 0.55);
+}
+
+.dropzone {
+  margin-top: 6px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropzone.dragging { border-color: rgba(86, 186, 133, 0.7); background: rgba(86, 186, 133, 0.08); }
+.dropzone.hasFile { border-style: solid; }
+
+.fileInput { display: none; }
+
+.dzTitle { font-weight: 700; letter-spacing: 0.2px; }
+.dzSub { margin-top: 4px; color: rgba(234,240,255,0.72); font-size: 13px; }
+.dzMeta { margin-top: 10px; font-size: 13px; color: rgba(234,240,255,0.85); }
+
+.tableWrap { overflow-x: auto; margin-top: 10px; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th, .table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: top;
+  text-align: left;
+}
+
+.table th { color: rgba(234,240,255,0.75); font-weight: 650; }
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  font-size: 12px;
+  color: rgba(234,240,255,0.9);
+}
+
+.miniNote {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.12);
+  color: rgba(234,240,255,0.9);
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.logList { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.logRow {
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.12);
+  border-radius: 14px;
+  padding: 12px;
+}
+.logMain { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.logDetails pre {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.18);
+  overflow: auto;
+  font-size: 12px;
+  color: rgba(234,240,255,0.9);
+}
+
+.toolbar {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.10);
+}
+
+.toolbar .field.small {
+  min-width: 160px;
+  flex: 1 1 160px;
+}

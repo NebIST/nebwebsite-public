@@ -1,0 +1,514 @@
+/* =========================================================
+   Schools page
+========================================================= */
+
+.schoolsPage {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(16px, 3vw, 36px) clamp(14px, 3vw, 18px) 80px;
+}
+
+
+/* ─── Hero ──────────────────────────────────────────────── */
+
+.schoolsHero {
+    position: relative;
+    margin-top: 14px;
+    border-radius: 26px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr clamp(220px, 38%, 440px);
+    align-items: stretch;
+    min-height: clamp(280px, 42vw, 460px);
+    background: linear-gradient(135deg, #0b3020 0%, #082040 55%, #07130e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 36px 120px rgba(0, 0, 0, 0.62);
+}
+
+.schoolsHeroContent {
+    position: relative;
+    z-index: 2;
+    padding: clamp(22px, 4vw, 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.schoolsHeroEyebrow {
+    margin: 0;
+    margin-top: 52px;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 6px 13px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(210, 255, 234, 0.9);
+}
+
+.schoolsHeroTitle {
+    margin: 16px 0 0;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.05;
+    color: #fff;
+    letter-spacing: 0.2px;
+    text-wrap: balance;
+}
+
+.schoolsHeroSub {
+    margin: 14px 0 0;
+    max-width: 54ch;
+    color: rgba(210, 248, 232, 0.8);
+    font-size: clamp(14px, 1.35vw, 18px);
+    line-height: 1.62;
+}
+
+.schoolsHeroImageWrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.schoolsHeroImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.78;
+}
+
+.schoolsHeroImgFade {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to right, rgba(9, 38, 24, 0.92) 0%, rgba(9, 38, 24, 0) 46%),
+        linear-gradient(to bottom, rgba(7, 20, 14, 0.5) 0%, transparent 22%),
+        linear-gradient(to top, rgba(7, 15, 10, 0.55) 0%, transparent 26%);
+    pointer-events: none;
+}
+
+
+/* ─── Tab bar ───────────────────────────────────────────── */
+
+.schoolsTabBar {
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+}
+
+.schoolsTab {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 720;
+    cursor: pointer;
+    transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.84);
+    font-family: inherit;
+}
+
+.schoolsTab:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+.schoolsTab.active {
+    background: linear-gradient(180deg, rgba(91, 205, 150, 0.42), rgba(91, 205, 150, 0.22));
+    border-color: rgba(130, 230, 178, 0.6);
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(60, 155, 105, 0.36);
+}
+
+.schoolsTab:focus-visible {
+    outline: 2px solid rgba(140, 230, 185, 0.9);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   TEACHER SECTION
+========================================================= */
+
+.teacherSection {
+    margin-top: 28px;
+    border-radius: 26px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: linear-gradient(135deg, rgba(24, 46, 36, 0.9), rgba(16, 28, 48, 0.92));
+    box-shadow: 0 28px 100px rgba(0, 0, 0, 0.52);
+}
+
+.teacherInner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+}
+
+.teacherText {
+    padding: clamp(24px, 4vw, 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.teacherEyebrow {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(245, 158, 11, 0.16);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 220, 100, 0.95);
+}
+
+.teacherTitle {
+    margin: 14px 0 0;
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: 0.2px;
+}
+
+.teacherDesc {
+    margin: 14px 0 0;
+    color: rgba(220, 252, 238, 0.82);
+    font-size: clamp(14px, 1.3vw, 16.5px);
+    line-height: 1.68;
+    max-width: 58ch;
+}
+
+.teacherCta {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 24px;
+    width: fit-content;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    font-family: inherit;
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.44), rgba(245, 158, 11, 0.24));
+    border: 1px solid rgba(245, 158, 11, 0.6);
+    color: rgba(255, 244, 185, 0.98);
+    box-shadow: 0 8px 26px rgba(180, 110, 0, 0.3);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.teacherCta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(180, 110, 0, 0.42);
+}
+
+.teacherCta:focus-visible {
+    outline: 2px solid rgba(255, 210, 100, 0.9);
+    outline-offset: 2px;
+}
+
+.teacherCard {
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacherCard img {
+    display: block;
+    width: min(100%, 460px);
+    max-height: clamp(220px, 50vw, 800px);
+    border-radius: 14px;
+    object-position: center;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   STUDENT SECTION
+========================================================= */
+
+.studentSection {
+    margin-top: 28px;
+}
+
+.studentHeroText {
+    text-align: center;
+    padding: clamp(14px, 2.6vw, 32px) clamp(14px, 6vw, 80px);
+    max-width: 76ch;
+    margin: 0 auto;
+}
+
+.studentEyebrow {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(99, 179, 237, 0.15);
+    border: 1px solid rgba(99, 179, 237, 0.38);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(160, 220, 255, 0.95);
+}
+
+.studentTitle {
+    margin: 14px 0 0;
+    font-size: clamp(28px, 3.8vw, 48px);
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: 0.2px;
+}
+
+.studentSubtitle {
+    margin: 12px 0 0;
+    color: rgba(210, 235, 255, 0.78);
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.65;
+}
+
+.studentPoints {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.studentPoint {
+    display: grid;
+    grid-template-columns: 1fr clamp(170px, 34%, 360px);
+    align-items: stretch;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    box-shadow: 0 22px 80px rgba(0, 0, 0, 0.44);
+}
+
+.studentPoint--reversed {
+    grid-template-columns: clamp(170px, 34%, 360px) 1fr;
+}
+
+.studentPointText {
+    padding: clamp(22px, 3.4vw, 44px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.studentPointBadge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.studentBadge--green {
+    background: rgba(72, 199, 132, 0.18);
+    border: 1px solid rgba(72, 199, 132, 0.42);
+    color: rgba(150, 240, 190, 0.96);
+}
+
+.studentBadge--blue {
+    background: rgba(66, 153, 225, 0.18);
+    border: 1px solid rgba(66, 153, 225, 0.42);
+    color: rgba(150, 210, 255, 0.96);
+}
+
+.studentBadge--yellow {
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid rgba(245, 158, 11, 0.42);
+    color: rgba(255, 215, 100, 0.96);
+}
+
+.studentBadge--pink {
+    background: rgba(237, 100, 166, 0.18);
+    border: 1px solid rgba(237, 100, 166, 0.42);
+    color: rgba(255, 170, 210, 0.96);
+}
+
+.studentBadge--red {
+    background: rgba(237, 100, 100, 0.18);
+    border: 1px solid rgba(237, 100, 100, 0.42);
+    color: rgba(255, 150, 150, 0.96);
+}
+
+.studentPointText h3 {
+    margin: 0;
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 860;
+    color: rgba(255, 255, 255, 0.97);
+    line-height: 1.2;
+    letter-spacing: 0.1px;
+}
+
+.studentPointText p {
+    margin: 10px 0 0;
+    color: rgba(212, 236, 255, 0.92);
+    font-size: clamp(14px, 1.22vw, 16.5px);
+    line-height: 1.66;
+}
+
+.studentPointVisual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(150px, 22vw, 260px);
+    font-size: clamp(64px, 9vw, 108px);
+    position: relative;
+}
+
+.studentVisual--green {
+    background: radial-gradient(circle at 50% 50%, #1a6640 0%, #0d3d24 50%, #082a18 100%);
+}
+
+.studentVisual--blue {
+    background: radial-gradient(circle at 50% 50%, #1040a0 0%, #0c2a6a 50%, #081a44 100%);
+}
+
+.studentVisual--yellow {
+    background: radial-gradient(circle at 50% 50%, #7a4e0a 0%, #4a2e06 50%, #301e04 100%);
+}
+
+.studentVisual--pink {
+    background: radial-gradient(circle at 50% 50%, #8a1a60 0%, #550e40 50%, #360828 100%);
+}
+
+.studentVisual--red {
+    background: radial-gradient(circle at 50% 50%, #8a1a1a 0%, #550e0e 50%, #360808 100%);
+}
+
+/* Subtle inner glow ring on visuals */
+.studentPointVisual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+.studentEmoji {
+    display: block;
+    line-height: 1;
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.5));
+    position: relative;
+    z-index: 1;
+}
+
+.studentInfoSection {
+    margin-top: 32px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    padding: clamp(22px, 3.4vw, 44px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.studentInfoSectionTitle {
+    margin-bottom: 12px;
+    font-size: clamp(26px, 2.5vw, 42px);
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: 0.2px;
+}
+
+.studentInfoSectionText {
+    margin: 0 auto;
+    max-width: 68ch;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.65;
+}
+
+.studentInfoCta {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 24px;
+    width: fit-content;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    font-family: inherit;
+    background: linear-gradient(180deg, rgba(66, 153, 225, 0.44), rgba(66, 153, 225, 0.24));
+    border: 1px solid rgba(66, 153, 225, 0.6);
+    color: rgba(150, 210, 255, 0.96);
+    box-shadow: 0 8px 26px rgba(30, 90, 150, 0.3);
+}
+
+.studentInfoCta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(30, 90, 150, 0.42);
+}
+
+
+/* ─── Mobile ─────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+    .schoolsHero {
+        grid-template-columns: 1fr;
+    }
+
+    .schoolsHeroImageWrap {
+        height: clamp(180px, 48vw, 280px);
+    }
+
+    .schoolsHeroImgFade {
+        background:
+            linear-gradient(to bottom, rgba(9, 38, 24, 0.85) 0%, transparent 36%),
+            linear-gradient(to top, rgba(7, 18, 12, 0.6) 0%, transparent 30%);
+    }
+
+    .teacherInner {
+        grid-template-columns: 1fr;
+    }
+
+    .teacherText {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .studentPoint,
+    .studentPoint--reversed {
+        grid-template-columns: 1fr;
+    }
+
+    .studentPoint--reversed .studentPointVisual {
+        order: -1;
+    }
+
+    .studentPointVisual {
+        min-height: clamp(110px, 36vw, 180px);
+        font-size: clamp(48px, 12vw, 80px);
+    }
+}

@@ -1,0 +1,13 @@
+# Deny all direct web access to this directory (Apache 2.4+)
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+
+# Back-compat for Apache 2.2
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>
+
+# Extra hardening
+Options -Indexes
