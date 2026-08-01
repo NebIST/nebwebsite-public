@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const isTec = process.env.DEPLOY_TARGET === 'tec';
 
-const basePath = isTec ? "/ist1109643" : "";
+const basePath = isTec ? "/DEV_PAGE_OF_IST" : "";
 
 const nextConfig: NextConfig = {
   output: "export",

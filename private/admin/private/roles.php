@@ -44,12 +44,6 @@ function loadRoles(): array
         }
     }
 
-    // Defaults (keep an initial bootstrap admin list to avoid lockout)
-    if (!isset($roles['admin']) || !is_array($roles['admin'])) {
-        $roles['admin'] = [
-            'ist1109643',
-        ];
-    }
 
     foreach (array_keys(getDefinedRoles()) as $roleKey) {
         if (!isset($roles[$roleKey]) || !is_array($roles[$roleKey])) {
