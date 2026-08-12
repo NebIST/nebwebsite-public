@@ -52,6 +52,44 @@ function isPresidentDirecao(string $istid): bool
     return (string)($row['role'] ?? '') === 'Presidente';
 }
 
+function shorthandToBytes(string $value): int
+{
+  $value = trim(strtolower($value));
+  if ($value === '') {
+    return 0;
+  }
+
+  $unit = substr($value, -1);
+  $number = (float)$value;
+
+  switch ($unit) {
+    case 'g': return (int)($number * 1024 * 1024 * 1024);
+    case 'm': return (int)($number * 1024 * 1024);
+    case 'k': return (int)($number * 1024);
+    default: return (int)$number;
+  }
+}
+
+function teamUploadLimitError(): string
+{
+  $contentLength = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+  $postMax = shorthandToBytes((string)ini_get('post_max_size'));
+  $uploadMax = shorthandToBytes((string)ini_get('upload_max_filesize'));
+
+  if ($contentLength > 0 && $postMax > 0 && $contentLength > $postMax) {
+    return 'The picture is too large for the server limit (2MB). Please upload a smaller image and try again.';
+  }
+
+  if ($uploadMax > 0 && isset($_FILES['photo']) && is_array($_FILES['photo'])) {
+    $err = (int)($_FILES['photo']['error'] ?? UPLOAD_ERR_NO_FILE);
+    if ($err === UPLOAD_ERR_INI_SIZE) {
+      return 'The picture is too large for the upload limit. Please upload a smaller image and try again.';
+    }
+  }
+
+  return '';
+}
+
 $u = myUser();
 $logged = ($u['istid'] ?? '') !== '';
 $flashOk = $_SESSION['flash_ok'] ?? null;
@@ -66,6 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     requireTeamLogin();
 
     try {
+        $uploadError = teamUploadLimitError();
+        if ($uploadError !== '') {
+            throw new RuntimeException($uploadError);
+        }
+
         verifyTeamCsrf((string)($_POST['csrf'] ?? ''));
 
         $action = (string)($_POST['action'] ?? '');
@@ -161,7 +204,7 @@ header('Content-Type: text/html; charset=utf-8');
   <header class="top">
     <div>
       <h1>Portal do Membro</h1>
-      <div class="sub">Login com Fénix para seres adicionado e gerires a tua informação.</div>
+      <div class="sub">Faz Login com Fénix para seres adicionado e gerires a tua informação.</div>
     </div>
     <div class="actions">
       <a class="btn" href="<?= h(siteUrl('/private/index.php')) ?>">Portal</a>
