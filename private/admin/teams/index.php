@@ -73,6 +73,61 @@ function roleOptionsForDept(string $deptSlug): ?array
     }
 }
 
+function normalizeRoleName(string $role): string
+{
+    $role = trim((string)$role);
+    if ($role === '') {
+        return '';
+    }
+
+    $role = mb_strtolower($role, 'UTF-8');
+    $role = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $role) ?: $role;
+    $role = preg_replace('/\s+/', ' ', $role) ?? $role;
+    return trim($role);
+}
+
+function requiredRolesForDept(string $deptSlug): array
+{
+    switch ($deptSlug) {
+        case 'presidency/direcao':
+            return ['Presidente', 'Secretário', 'Tesoureiro', 'Vogal'];
+        case 'presidency/assembleia-geral':
+            return ['Presidente da Mesa', 'Suplente da Mesa', '1º Secretário', '2º Secretário'];
+        case 'presidency/conselho-fiscal':
+            return ['Efetiva'];
+        default:
+            return [];
+    }
+}
+
+function missingRolesForDept(string $deptSlug, array $people): array
+{
+    $required = requiredRolesForDept($deptSlug);
+    if ($required === []) {
+        return [];
+    }
+
+    $filled = [];
+    foreach ($people as $person) {
+        $role = trim((string)($person['role'] ?? ''));
+        if ($role === '') {
+            continue;
+        }
+        $filled[normalizeRoleName($role)] = true;
+    }
+
+    $missing = [];
+    foreach ($required as $role) {
+        $key = normalizeRoleName($role);
+        if ($key === '' || isset($filled[$key])) {
+            continue;
+        }
+        $missing[] = $role;
+    }
+
+    return $missing;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $csrf = $_POST['csrf'] ?? '';
     if (!is_string($csrf) || !hash_equals($_SESSION['csrf'], $csrf)) {
@@ -209,6 +264,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $departments = listDepartments();
+$requiredDeptOrder = [
+    'presidency/direcao',
+    'presidency/assembleia-geral',
+    'presidency/conselho-fiscal',
+];
+
+usort($departments, function (array $a, array $b) use ($requiredDeptOrder): int {
+    $slugA = (string)($a['slug'] ?? '');
+    $slugB = (string)($b['slug'] ?? '');
+    $posA = array_search($slugA, $requiredDeptOrder, true);
+    $posB = array_search($slugB, $requiredDeptOrder, true);
+
+    if ($posA !== false && $posB !== false) return $posA <=> $posB;
+    if ($posA !== false) return -1;
+    if ($posB !== false) return 1;
+    return strcmp($slugA, $slugB);
+});
+
+$requiredDepartments = [];
+$otherDepartments = [];
+foreach ($departments as $department) {
+    $slug = (string)($department['slug'] ?? '');
+    if (in_array($slug, $requiredDeptOrder, true)) {
+        $requiredDepartments[] = $department;
+    } else {
+        $otherDepartments[] = $department;
+    }
+}
+
+$departments = array_merge($requiredDepartments, $otherDepartments);
+$missingDepartmentWarnings = [];
+foreach ($departments as $d) {
+    $slug = (string)($d['slug'] ?? '');
+    $people = [];
+    $pdir = deptPeopleDir($slug);
+    if (is_dir($pdir)) {
+        foreach (glob($pdir . '/*.json') ?: [] as $pf) {
+            $row = loadJsonFile($pf);
+            if (is_array($row) && (string)($row['istid'] ?? '') !== '') $people[] = $row;
+        }
+    }
+
+    if (!empty(missingRolesForDept($slug, $people))) {
+        $missingDepartmentWarnings[] = (string)($d['name'] ?? $slug);
+    }
+}
 $membershipIndex = loadMembershipIndex();
 
 // waiting users: saved users not in any team
@@ -327,6 +428,11 @@ header('Content-Type: text/html; charset=utf-8');
     <?php if (is_string($flashErr) && $flashErr !== ''): ?>
         <div class="alert err"><?= h($flashErr) ?></div>
     <?php endif; ?>
+    <?php if (!empty($missingDepartmentWarnings)): ?>
+        <div class="alert err" style="margin-bottom:14px;">
+            Faltam cargos: <?= h(implode(', ', $missingDepartmentWarnings)) ?>
+        </div>
+    <?php endif; ?>
 
     <div class="grid">
         <div class="card half">
@@ -440,6 +546,15 @@ header('Content-Type: text/html; charset=utf-8');
             <?php if (empty($departments)): ?>
                 <div class="subtitle">Nenhum departamento encontrado.</div>
             <?php else: ?>
+                <?php
+                    $requiredDeptSlugs = [
+                        'presidency/direcao',
+                        'presidency/assembleia-geral',
+                        'presidency/conselho-fiscal',
+                    ];
+                    $requiredDeptRendered = false;
+                    $otherDeptRendered = false;
+                ?>
                 <?php foreach ($departments as $d): ?>
                     <?php
                         $slug = (string)($d['slug'] ?? '');
@@ -469,7 +584,19 @@ header('Content-Type: text/html; charset=utf-8');
                         $deleteConfirmMessage = $isProtectedDept
                             ? 'Apenas serão removidos os membros deste departamento; o departamento não pode ser removido.'
                             : 'Eliminar o departamento "' . $name . '"? Isto elimina todos os membros e fotos dentro do departamento.';
+                        $missingRoles = missingRolesForDept($slug, $people);
+                        $isRequiredDept = in_array($slug, $requiredDeptSlugs, true);
                     ?>
+
+                    <?php if ($isRequiredDept && !$requiredDeptRendered): ?>
+                        <?php $requiredDeptRendered = true; ?>
+                        <div style="margin:18px 0 10px; font-weight:700; color:#1f2937;">Órgãos Sociais</div>
+                    <?php endif; ?>
+                    <?php if (!$isRequiredDept && !$otherDeptRendered): ?>
+                        <?php $otherDeptRendered = true; ?>
+                        <div style="margin:18px 0 10px; font-weight:700; color:#1f2937;">Outros departamentos</div>
+                    <?php endif; ?>
+
                     <details class="deptBox">
                         <summary>
                             <span style="font-weight:700"><?= h($name) ?></span>
@@ -518,6 +645,12 @@ header('Content-Type: text/html; charset=utf-8');
                             <input type="hidden" name="dept_slug" value="<?= h($slug) ?>" />
                             <button class="button danger" type="submit">Eliminar departamento</button>
                         </form>
+
+                        <?php if (!empty($missingRoles)): ?>
+                            <div class="alert err" style="margin-top:12px; margin-bottom:12px;">
+                                Falta os seguintes: <?= h(implode(', ', $missingRoles)) ?>.
+                            </div>
+                        <?php endif; ?>
 
                         <h3>Membros</h3>
                         <?php if (empty($people)): ?>

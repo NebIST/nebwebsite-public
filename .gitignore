@@ -5,6 +5,7 @@ node_modules/
 
 .test/
 .DS_Store
+*.DS_Store
 
 **/user.data.json
 **/logs.data.json
