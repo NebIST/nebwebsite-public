@@ -67,7 +67,7 @@ function roleOptionsForDept(string $deptSlug): ?array
         case 'presidency/assembleia-geral':
             return ['', 'Presidente da Mesa', 'Suplente da Mesa', '1º Secretário','2º Secretário', 'Vogal'];
         case 'presidency/conselho-fiscal':
-            return ['', 'Efetiva', 'Vogal'];
+            return ['', 'Efetiva'];
         default:
             return null;
     }
@@ -433,7 +433,7 @@ header('Content-Type: text/html; charset=utf-8');
                 <ul>
                     <li>A Direção tiver: Presidente, Tesoureiro, Secretário e pelo menos um Vogal.</li>
                     <li>A Assembleia Geral tiver: Presidente da Mesa, Suplente da Mesa, 1º Secretário, 2º Secretário e pelo menos um Vogal.</li>
-                    <li>O Conselho Fiscal tiver: pelo menos uma pessoa com o cargo Efetiva e pelo menos uma pessoa com o cargo Vogal.</li>
+                    <li>O Conselho Fiscal tiver: pelo menos uma pessoa com o cargo Efetiva.</li>
                     <li>Cada pessoa tiver um istid e um name para aparecer na lista pública.</li>
                 </ul>
             </div>

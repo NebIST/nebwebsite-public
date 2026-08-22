@@ -175,7 +175,6 @@ try {
             ],
             'presidency/conselho-fiscal' => [
                 ['role' => 'Efetiva', 'min' => 1, 'max' => 9999],
-                ['role' => 'Vogal', 'min' => 1, 'max' => 9999],
             ],
         ];
 

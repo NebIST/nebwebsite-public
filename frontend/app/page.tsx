@@ -68,7 +68,7 @@ export default function RootLayout() {
           <div className="about-card" tabIndex={0}>
             <Image src={withBasePath("/frontPage/aboutImages/about_activities.jpg")} alt="Setembro 2005" width={300} height={420}/>
             <div className="overlay top" aria-hidden="false">
-              <h3>Disversas Atividades por Ano!</h3>
+              <h3>Diversas Atividades por Ano!</h3>
               <p className="more" style={{textAlign: "center", marginTop: "10%"}}>Promovendo a cultura do Técnico, programas de Voluntariado, WorkShops, Quizz Nights, e <b>muito mais!</b></p>
             </div>
           </div>
